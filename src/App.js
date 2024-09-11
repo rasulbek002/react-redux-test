@@ -1,7 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+/* External dependencies */
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
+/* Local dependencies */
+import "./App.css";
+import logo from "./logo.svg";
+import { fetchPosts } from "./redux/reducer";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
